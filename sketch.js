@@ -1,6 +1,5 @@
-
 //variables
-let angle = 0;
+
 let train;
 let vel = 2;
 let posX = 0;
