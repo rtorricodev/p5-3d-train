@@ -6,6 +6,7 @@ let positionX = -100;
 let positionY = 160;
 let positionZ = -800;
 let initialPosition = -1200;
+let autoplay = true;
 
 //size of the canvas
 const width = 900;
@@ -30,9 +31,11 @@ function setup() {
 }
 
 function playBackgroundMusic() {
+  if(autoplay) {
     if (!music.isPlaying()) {
       music.play();
     }
+  }
 }
 
 function prepareScene() {
@@ -70,7 +73,7 @@ function defineTerrain() {
 }
 
 function draw() {
-  //playBackgroundMusic();
+  playBackgroundMusic();
   prepareScene();
   defineTerrain();
   moveTrain();
