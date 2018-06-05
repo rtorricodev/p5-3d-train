@@ -73,7 +73,7 @@ function defineTerrain() {
 }
 
 function draw() {
-  playBackgroundMusic();
+  //playBackgroundMusic();
   prepareScene();
   defineTerrain();
   moveTrain();
