@@ -3,7 +3,7 @@ let train;
 var music;
 let velocity = 2;
 let positionX = -100;
-let positionY = 160;
+let positionY = 180;
 let positionZ = -800;
 let initialPosition = -1200;
 let autoplay = true;
@@ -23,7 +23,7 @@ function preload() {
   train = loadModel('./models/train-corrected.obj');
   music = loadSound("./assets/sound/Thomas-The-Tank-Engine-Theme-Song.mp3");
   wood = loadImage("./assets/textures/wood.jpg");
-  grass = loadImage("./assets/background/535811203.jpg");
+  grass = loadImage("./assets/background/cold.jpg");
 }
 
 function setup() {
