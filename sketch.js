@@ -1,7 +1,8 @@
 //variables
 let train;
 var music;
-let velocity = 2;
+let velocity = 1;
+const wheelVelocity = 0.1;
 let positionX = -100;
 let positionY = 180;
 let positionZ = -800;
@@ -20,7 +21,7 @@ let white = [255,255,255];
 let lightWhite = [255,255,255,0];
 
 function preload() {
-  train = loadModel('./models/train-corrected.obj');
+  train = loadModel('./models/train-with-out-wheels.obj');
   music = loadSound("./assets/sound/Thomas-The-Tank-Engine-Theme-Song.mp3");
   wood = loadImage("./assets/textures/wood.jpg");
   grass = loadImage("./assets/background/cold.jpg");
@@ -55,6 +56,18 @@ function definePositionOfTrain() {
   }
 }
 
+
+function wheel(addX,addZ) {
+  push();
+    definePositionOfTrain();
+    translate(positionX + addX , positionY, (positionZ += velocity) + addZ);
+    rotateZ(80);
+    rotateY(frameCount * wheelVelocity);
+    cylinder(17, 10); 
+  pop();
+}
+
+
 function moveTrain() {
   push();
     definePositionOfTrain();
@@ -76,4 +89,7 @@ function draw() {
   prepareScene();
   defineTerrain();
   moveTrain();
+  wheel(-2, 20);
+  wheel(-2, -40);
+  wheel(40, 20);
 }
