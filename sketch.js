@@ -8,7 +8,6 @@ let positionY = 180;
 let positionZ = -800;
 let initialPosition = -1200;
 let autoplay = true;
-
 //size of the canvas
 const width = 900;
 const height = 700;
@@ -24,11 +23,13 @@ function preload() {
   train = loadModel('./models/train-with-out-wheels.obj');
   music = loadSound("./assets/sound/Thomas-The-Tank-Engine-Theme-Song.mp3");
   wood = loadImage("./assets/textures/wood.jpg");
+  bubbleTexture= loadImage("./assets/textures/bubble1.jpg");
   grass = loadImage("./assets/background/cold.jpg");
 }
 
 function setup() {
   createCanvas(width, height, WEBGL);
+  
 }
 
 function playBackgroundMusic() {
@@ -85,6 +86,21 @@ function defineTerrain() {
   pop();
 }
 
+let a = 1;
+let b = positionZ;
+
+function bubbles()
+{
+  console.log('dibujando burbujas');
+  push();
+    rotateY(45);
+    texture(bubbleTexture);
+    translate(positionX, positionY-110,   b -= a  );
+    sphere(10);
+  pop();
+}
+
+
 function draw() {
   //playBackgroundMusic();
   prepareScene();
@@ -93,4 +109,6 @@ function draw() {
   wheel(-2, 20);
   wheel(-2, -40);
   wheel(40, 20);
+  bubbles();
 }
+
