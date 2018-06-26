@@ -14,6 +14,10 @@ let positionZV = -920;
 let initialPosition = -1200;
 let autoplay = true;
 
+let speed=0.4;
+let posBurbble=positionZ+40;
+let a=1;
+
 //size of the canvas
 const width = 900;
 const height = 700;
@@ -28,7 +32,8 @@ let lightWhite = [255,255,255,0];
 function preload() {
   train = loadModel('./models/train-with-out-wheels.obj');
   vagon = loadModel('./models/untitled2.obj');
-  music = loadSound("./assets/sound/Thomas-The-Tank-Engine-Theme-Song.mp3");
+  bubbleTexture=loadImage("./assets/textures/download.jpg");
+  music = loadSound("./assets/sound/We Wish You a Merry Christmas with Lyrics Christmas Carol  Song Kids Love to Sing.mp3");
   wood = loadImage("./assets/textures/wood.jpg");
   wood2 = loadImage("./assets/textures/0012-dark-fine-wood-texture-seamless.jpg");
   grass = loadImage("./assets/background/cold.jpg");
@@ -91,6 +96,35 @@ function wheelVagon(addX,addZ) {
   pop();
 }
 
+
+function burbble() {
+    
+    rotateY(45);
+    texture(bubbleTexture);
+
+    push();
+    translate(positionX, positionY-110,   posBurbble -= speed  );
+    sphere(10);
+    pop();
+    push();
+    translate(positionX, positionY-140,   posBurbble -= speed  );
+    sphere(8);
+    pop();
+    push();
+    translate(positionX, positionY-155,   posBurbble -= speed  );
+    sphere(12);
+    pop();
+    push();
+    translate(positionX, positionY-167,   posBurbble -= speed  );
+    sphere(4);
+    pop();
+    a+=1;
+    if(a==12){
+      posBurbble=positionZ+40;
+      a=1;
+    }  
+}
+
 function moveTrain() {
   push();
     definePositionOfTrain();
@@ -113,7 +147,7 @@ function defineTerrain() {
 }
 
 function draw() {
-  //playBackgroundMusic();
+  playBackgroundMusic();
   prepareScene();
   defineTerrain();
   moveTrain();
@@ -129,4 +163,5 @@ function draw() {
   wheelVagon(-35, -80);
   wheelVagon(-35, -140);
   wheelVagon(40, -80);
+  burbble();
 }
