@@ -41,7 +41,6 @@ function playBackgroundMusic() {
 
 function prepareScene() {
   background(0,0,0);
-  // ambientLight(green,0,0,1);
   directionalLight(lightWhite, 0, 0, -30);
 }
 
