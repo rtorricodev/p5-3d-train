@@ -46,9 +46,7 @@ function burbble() {
     if(a==12){
       posBurbble=positionZ+40;
       a=1;
-    }
-    
-    
+    }  
 }
 function preload() {
   train = loadModel('./models/train-with-out-wheels.obj');
